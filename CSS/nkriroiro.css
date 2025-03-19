@@ -58,3 +58,7 @@ h2 {
   text-align: left;
   display: inline-block;
 }
+
+#indextoreturn {
+  text-align: right;
+}
