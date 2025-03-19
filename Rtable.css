@@ -1,0 +1,60 @@
+body {
+  font-family:　Arial, Helvetica, sans-serif;
+  margin: 0; /* bodyのデフォルトのmarginを削除 */
+}
+
+h2 {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  width: 98vw; /* 端末の幅に合わせる */
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box; /* padding, borderを含めてwidth, heightを計算 */
+}
+
+.charas, .charas-right {
+  width: calc(100vw * 0.80); /* 端末の幅の80% */
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(60, 60, 60);
+}
+
+.number, .numberb {
+  width: calc(100vw * 0.1); /* 端末の幅の10% */
+  height: 50px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#gacha_selects {
+  width: calc(100vw * 0.5);
+  margin-left: 10px;
+}
+
+#addButton {
+  margin-left: 10px;
+}
+
+#seeds {
+  margin-left: 10px;
+}
+
+#a_lot_of_function {
+  margin-left: 10px;
+}
+
+#find_next {
+  width: calc(100vw * 0.13);
+}
+
+#densetu {
+  text-align: left;
+  display: inline-block;
+}
