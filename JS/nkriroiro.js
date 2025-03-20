@@ -206,11 +206,17 @@ addButton.addEventListener('click', function() {
   const inputString = document.getElementById("gcha_select").value;
   url.searchParams.set("seed",inputNumber);
   url.searchParams.set("select",inputString);
-  history.replaceState(null,"",url);
+  location.href = url;
   });
 document.addEventListener('DOMContentLoaded', function() {
   const selectg = url.searchParams.get("select")
   let seedi = parseInt(url.searchParams.get("seed"));
+  if (seedi) {
+    document.getElementById("inputNumber").value = seedi;
+  } 
+  if (selectg) {
+    document.getElementById("gcha_select").value = selectg;
+  }
   dens_next.splice(0, dens_next.length);
   updens_next.splice(0, updens_next.length);
   const namesa = [];
