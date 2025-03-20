@@ -18,7 +18,7 @@ body {
 }
 
 .charas, .charas-right {
-  width: calc(100vw * 0.80); /* 端末の幅の80% */
+  width: calc(100vw * 0.75); /* 端末の幅の80% */
   height: 50px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(60, 60, 60);
