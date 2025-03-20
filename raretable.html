@@ -3,13 +3,13 @@
 <head>
   <title>レアガチャテーブル</title>
   <link rel="stylesheet" href="CSS/nkriroiro.css">
-  <link rel="icon" href="/img/nkr-site-favicon.png">
+  <link rel="icon" href="img/logo_favicon.png">
 </head>
 <body>
   <img src="img/logo_rtable.png" width="200" height="50"position: absolute; left: 0;>
   <a href="index.html"><img src="img/back button.png" width="20" height="20" style="position: absolute; right: 0;"></a>
+  <br>
   <div id="gacha_selects">
-    <h3>ガチャを選択:</h3>
     <select id="gcha_select" style="display: inline-block;">
       <optgroup label="開催中、開催予定ガチャ:"></optgroup>
       <optgroup label="恒常ガチャ:"></optgroup>
@@ -84,12 +84,10 @@
     </select>
   </div>
   <div id="seeds" style="position: relative;">
-    <h3>シード:</h3>
     <input type="number" id="inputNumber">
     <button onclick="copyButton('inputNumber')" style="position: absolute; right: 0;">シードをコピー</button>
   </div>
   <button id="addButton">決定</button>
-  <br>
   <br>
   <h3>仮超激レアを追加:<h3>
   <select id="addfutureuber" style="display: inline-block;">
@@ -108,9 +106,9 @@
   <br>
   <br>
     <div style="display: flex;" id="densetu">
-    <h3>伝説枠: </h3>
+    伝説枠:
     <div id="dense_tugi"></div>
-    <h3>  昇格伝説枠:<h3>
+    　　昇格伝説枠:
     <div id="updense_tugi"></div>
     </div>
   </div>

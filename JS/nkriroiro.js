@@ -175,7 +175,6 @@
       return this.seed >>> 0; // 符号なし32ビット整数として返す
     }
   }
-
   // ボタンがクリックされたときの処理
   addButton.addEventListener('click', function() {
 
@@ -199,7 +198,8 @@
     url.searchParams.set("select",inputString);
     url.searchParams.set("seed",inputNumber);
     const selectg = url.searchParams.get("select")
-    let seedi = url.searchParams.get("seed")
+    let seedi = parseInt(url.searchParams.get("seed"));
+    history.replaceState(null,"",url)
     //ガチャ別排出率設定
     let dens, tyog, grare;
     if (selectg === "949") { //アイアンウォーズ
@@ -246,151 +246,151 @@
       seedi = results[1];
 
       let namea;
-      if (selectg === "949") { // 追加: 配列の存在と長さを確認
+      if (selectg === "949") { 
         namea = g949[getValue(result1)][result2 % g949[getValue(result1)].length];
       } else {
-        namea = "作成途中です :("; // または適切なデフォルト値を設定
+        namea = "作成途中です :("; 
       }
       namesa.push(namea);
       aread.push(result1);
       maeno = namea
       }
     
-    const xorshift = new Xorshift32(seedi);
-    seedi = xorshift.random();
-
-    for (let bu = 0; bu <= 1000; bu++) {
-      const xorshift = new Xorshift32(seedi);
-
-      const results = [];
-      for (let i = 0; i < 2; i++) {
-      results.push(xorshift.random());
+      const xorshift = new Xorshift32(parseInt(url.searchParams.get("seed")));
+      seedi = xorshift.random();
+  
+      for (let bu = 0; bu <= 1000; bu++) {
+        const xorshift = new Xorshift32(seedi);
+  
+        const results = [];
+        for (let i = 0; i < 2; i++) {
+        results.push(xorshift.random());
+        }
+        
+        const result15 = results[0] % 10000;
+        const result144 = results[1];
+        seedi = results[1];
+  
+        let nameb;
+        const value15 = getValue(result15);
+        if (selectg === "949") { // 追加: 配列の存在と長さを確認
+            nameb = g949[value15][result144 % g949[value15].length];
+        } else {
+            nameb = "何やってるんですか！？"; // または適切なデフォルト値を設定
+        }
+        namesb.push(nameb);   
+        bread.push(result15);
       }
-      
-      const result15 = results[0] % 10000;
-      const result144 = results[1];
-      seedi = results[1];
-
-      let nameb;
-      const value15 = getValue(result15);
-      if (selectg[value15] && selectg[value15].length > 0) { // 追加: 配列の存在と長さを確認
-          nameb = selectg[value15][result144 % g949[value15].length];
-      } else {
-          nameb = "何やってるんですか！？"; // または適切なデフォルト値を設定
+    
+      // 初期表示
+      const event = new Event('change');
+      gchaSelect.dispatchEvent(event);
+  
+      const rows = container.querySelectorAll('.row');
+      for (let i = 0; i < 1001; i++) {
+        if (i === 0) { // 一番上の行
+          rows[i].querySelector('.number').textContent = "A";
+          rows[i].querySelector('.numberb').textContent = "B";
+          rows[i].querySelector('.charas').textContent = inputString;
+          rows[i].querySelector('.charas-right').textContent = inputString;
+          rows[i].querySelector('.number').style.backgroundColor = '#00ff00';
+          rows[i].querySelector('.numberb').style.backgroundColor = '#00ff00';
+          rows[i].querySelector('.charas').style.backgroundColor = '#00ff00';
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#00ff00';
+        } else { // 2行目以降
+          rows[i].querySelector('.charas').textContent = namesa[i - 1];
+          rows[i].querySelector('.charas-right').textContent = namesb[i - 1];
+          rows[i].querySelector('.number').textContent = i;
+          rows[i].querySelector('.numberb').textContent = i;
+          rows[i].querySelector('.charas').style.backgroundColor = '#ffffff';
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#ffffff';
+  
+        //昇格伝説
+        if (selectg != "966" && selectg != "965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {
+          updens_next.push(i + "A")
+        }
+        if (selectg != "966" && selectg != "965" && 9940 <= bread[i - 1] && bread[i - 1] <= dens) {
+          updens_next.push(i + "B")
+        }
+        //伝説次の表示
+        if (selectg != "966" && selectg != "965" && aread[i -1] >= dens) {
+          dens_next.push(i + "A")
+        }
+        if (selectg != "966" && selectg != "965" && bread[i -1] >= dens) {
+          dens_next.push(i + "B")
+        }
+  
+        //通常激レア処理
+        if (selectg != "966" && selectg != "965" && aread[i - 1] >= grare) {
+          rows[i].querySelector('.charas').style.backgroundColor = '#ffff00';
+        }
+        if (selectg != "966" && selectg != "965" && bread[i - 1] >= grare) {
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#ffff00';
+        }
+          //通常超激処理(確率違うところだけ先に作って残りはelseで処理する)
+        if (selectg != "966" && selectg != "965" && aread[i - 1] >= tyog) {
+          rows[i].querySelector('.charas').style.backgroundColor = '#ff0033';
+        }
+        if (selectg != "966" && selectg != "965" && bread[i - 1] >= tyog) {
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#ff0033';
+        }
+  
+        //昇格超激処理（超極祭）
+        if (selectg != "966" && selectg != "965" && aread[i - 1] >= 8970 && aread[i - 1] <= 9500) {
+          rows[i].querySelector('.charas').style.backgroundColor = '#ff6633';
+        }
+        if (selectg != "966" && selectg != "965" && bread[i - 1] >= 8970 && bread[i - 1] <= 9500) {
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#ff6633';
+        }
+        //限定超激処理(上書き)
+        if (namesa[i - 1].includes('フォノ') || namesa[i - 1].includes('ミタマ') || namesa[i - 1].includes('イズ') || namesa[i - 1].includes("ダルターニャ") || namesa[i - 1].includes("ガル") || namesa[i - 1].includes('ガオウ') || namesa[i - 1].includes('キャス') || namesa[i - 1].includes("閃雷機兵") || namesa[i - 1].includes('エマ') || namesa[i - 1].includes('光の女神シリウス') || namesa[i - 1].includes('風隼') || namesa[i - 1].includes('パイパイ')) {
+          rows[i].querySelector('.charas').style.backgroundColor = '#00ffff';
+          }
+          if (namesb[i - 1].includes('フォノ') || namesb[i - 1].includes('ミタマ') || namesb[i - 1].includes('イズ') || namesb[i - 1].includes("ダルターニャ") || namesb[i - 1].includes("ガル") || namesb[i - 1].includes('ガオウ') || namesb[i - 1  ].includes('キャス') || namesb[i - 1].includes("閃雷機兵") || namesb[i - 1].includes('エマ') || namesb[i - 1].includes('光の女神シリウス') || namesb[i - 1].includes('風隼') || namesb[i - 1].includes('パイパイ')) {
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#00ffff';
+          } 
+    
+        //昇格伝説処理
+        if (selectg != "966" && selectg != "965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {
+          rows[i].querySelector('.charas').style.backgroundColor = '#6633ff';
+        }
+        if (selectg != "966" && selectg != "965" && 9940 <= bread[i - 1] && bread[i - 1] <= dens) {
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#6633ff';
+        }
+        //伝説処理
+        if (aread[i - 1] >= dens) {
+          rows[i].querySelector('.charas').style.backgroundColor = '#9900cc';
+        }
+        if (bread[i - 1] >= dens) {
+          rows[i].querySelector('.charas-right').style.backgroundColor = '#9900cc';
+        }
+        
       }
-      namesb.push(nameb);   
-      bread.push(result15);
+    dtugi.textContent = dens_next
+    updtugi.textContent = updens_next;
+  }});
+  
+  
+    // 初期表示用
+    for (let i = 0; i < 1000; i++) {
+      const newRow = document.createElement('div');
+      newRow.classList.add('row');
+    
+      const numberBox = document.createElement('div');
+      numberBox.classList.add('box', 'number');
+      newRow.appendChild(numberBox);
+    
+      const charasBox = document.createElement('div');
+      charasBox.classList.add('box', 'charas');
+      newRow.appendChild(charasBox);
+    
+      const numberbBox = document.createElement('div');
+      numberbBox.classList.add('box', 'numberb');
+      newRow.appendChild(numberbBox);
+    
+      const charasRightBox = document.createElement('div');
+      charasRightBox.classList.add('box', 'charas-right');
+      newRow.appendChild(charasRightBox);
+    
+      container.appendChild(newRow);
     }
-  
-    // 初期表示
-    const event = new Event('change');
-    gchaSelect.dispatchEvent(event);
-
-    const rows = container.querySelectorAll('.row');
-    for (let i = 0; i < 1001; i++) {
-      if (i === 0) { // 一番上の行
-        rows[i].querySelector('.number').textContent = "A";
-        rows[i].querySelector('.numberb').textContent = "B";
-        rows[i].querySelector('.charas').textContent = inputString;
-        rows[i].querySelector('.charas-right').textContent = inputString;
-        rows[i].querySelector('.number').style.backgroundColor = '#00ff00';
-        rows[i].querySelector('.numberb').style.backgroundColor = '#00ff00';
-        rows[i].querySelector('.charas').style.backgroundColor = '#00ff00';
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#00ff00';
-      } else { // 2行目以降
-        rows[i].querySelector('.charas').textContent = namesa[i - 1];
-        rows[i].querySelector('.charas-right').textContent = namesb[i - 1];
-        rows[i].querySelector('.number').textContent = i;
-        rows[i].querySelector('.numberb').textContent = i;
-        rows[i].querySelector('.charas').style.backgroundColor = '#ffffff';
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#ffffff';
-
-      //昇格伝説
-      if (selectg != "g966" && selectg != "g965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {
-        updens_next.push(i + "A")
-      }
-      if (selectg != "g966" && selectg != "g965" && 9940 <= bread[i - 1] && bread[i - 1] <= dens) {
-        updens_next.push(i + "B")
-      }
-      //伝説次の表示
-      if (selectg != "g966" && selectg != "g965" && aread[i -1] >= dens) {
-        dens_next.push(i + "A")
-      }
-      if (selectg != "g966" && selectg != "g965" && bread[i -1] >= dens) {
-        dens_next.push(i + "B")
-      }
-
-      //通常激レア処理
-      if (hiku != "966" && hiku != "965" && aread[i - 1] >= grare) {
-        rows[i].querySelector('.charas').style.backgroundColor = '#ffff00';
-      }
-      if (hiku != "966" && hiku != "965" && bread[i - 1] >= grare) {
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#ffff00';
-      }
-        //通常超激処理(確率違うところだけ先に作って残りはelseで処理する)
-      if (hiku != "966" && hiku != "965" && aread[i - 1] >= tyog) {
-        rows[i].querySelector('.charas').style.backgroundColor = '#ff0033';
-      }
-      if (hiku != "966" && hiku != "965" && bread[i - 1] >= tyog) {
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#ff0033';
-      }
-
-      //昇格超激処理（超極祭）
-      if (hiku != "966" && hiku != "965" && aread[i - 1] >= 8970 && aread[i - 1] <= 9500) {
-        rows[i].querySelector('.charas').style.backgroundColor = '#ff6633';
-      }
-      if (hiku != "966" && hiku != "965" && hiku === "g949" && bread[i - 1] >= 8971 && bread[i - 1] <= 9500) {
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#ff6633';
-      }
-      //限定超激処理(上書き)
-      if (namesa[i - 1].includes('フォノ') || namesa[i - 1].includes('ミタマ') || namesa[i - 1].includes('イズ') || namesa[i - 1].includes("ダルターニャ") || namesa[i - 1].includes("ガル") || namesa[i - 1].includes('ガオウ') || namesa[i - 1].includes('キャス') || namesa[i - 1].includes("閃雷機兵") || namesa[i - 1].includes('エマ') || namesa[i - 1].includes('光の女神シリウス') || namesa[i - 1].includes('風隼') || namesa[i - 1].includes('パイパイ')) {
-      rows[i].querySelector('.charas').style.backgroundColor = '#00ffff';
-      }
-      if (namesb[i - 1].includes('フォノ') || namesb[i - 1].includes('ミタマ') || namesb[i - 1].includes('イズ') || namesb[i - 1].includes("ダルターニャ") || namesb[i - 1].includes("ガル") || namesb[i - 1].includes('ガオウ') || namesb[i - 1  ].includes('キャス') || namesb[i - 1].includes("閃雷機兵") || namesb[i - 1].includes('エマ') || namesb[i - 1].includes('光の女神シリウス') || namesb[i - 1].includes('風隼') || namesb[i - 1].includes('パイパイ')) {
-      rows[i].querySelector('.charas-right').style.backgroundColor = '#00ffff';
-      } 
-
-      //昇格伝説処理
-      if (hiku != "966" && hiku != "965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {
-        rows[i].querySelector('.charas').style.backgroundColor = '#6633ff';
-      }
-      if (hiku != "966" && hiku != "965" && 9940 <= bread[i - 1] && bread[i - 1] <= dens) {
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#6633ff';
-      }
-      //伝説処理
-      if (aread[i - 1] >= dens) {
-        rows[i].querySelector('.charas').style.backgroundColor = '#9900cc';
-      }
-      if (bread[i - 1] >= dens) {
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#9900cc';
-      }
-      
-    }
-  dtugi.textContent = dens_next
-  updtugi.textContent = updens_next;
-}});
-
-
-  // 初期表示用
-  for (let i = 0; i < 1000; i++) {
-    const newRow = document.createElement('div');
-    newRow.classList.add('row');
-  
-    const numberBox = document.createElement('div');
-    numberBox.classList.add('box', 'number');
-    newRow.appendChild(numberBox);
-  
-    const charasBox = document.createElement('div');
-    charasBox.classList.add('box', 'charas');
-    newRow.appendChild(charasBox);
-  
-    const numberbBox = document.createElement('div');
-    numberbBox.classList.add('box', 'numberb');
-    newRow.appendChild(numberbBox);
-  
-    const charasRightBox = document.createElement('div');
-    charasRightBox.classList.add('box', 'charas-right');
-    newRow.appendChild(charasRightBox);
-  
-    container.appendChild(newRow);
-  }
