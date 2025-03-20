@@ -3,10 +3,15 @@ body {
     margin: 0; /* bodyのデフォルトのmarginを削除 */
   }
 
-h1 {
-    text-align: center;
-}
 
 a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: calc(100vw * 0.75);
+    height: calc(100vw * 0.01);
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
 }
