@@ -6,6 +6,7 @@
   const findNext = document.getElementById('find_next');
   const dtugi = document.getElementById('dense_tugi');
   const updtugi = document.getElementById('updense_tugi');
+  const url = new URL(window.location.href);
   function copyButton(elementId) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -177,86 +178,48 @@
 
   // ボタンがクリックされたときの処理
   addButton.addEventListener('click', function() {
+
+    url.searchParams.append("seed",0);
+    url.searchParams.append("select",0);
+
     dens_next.splice(0, dens_next.length);
     updens_next.splice(0, updens_next.length);
+
     const inputNumber = parseInt(document.getElementById('inputNumber').value);
     const inputString = document.getElementById("gcha_select").value;
-    let selectg = null; // 初期値を設定
+
     const namesa = [];
     const namesb = [];
     const aread = [];
     const bread = [];
-    
 
+    kaburi = "";
+    maeno = "";
 
-    // 場合分け
-    if (inputString === 'アイアンウォーズ') {
-      selectg = g949
-    } else if (inputString === 'プラチナガチャ') {
-      selectg = g965
-    } else if (inputString === 'レジェンドガチャ') {
-      selectg = g966
-    } else if (inputString === 'ネコルガ族') {
-      selectg = g962
-    } else if (inputString === 'ダイナマイツ') {
-      selectg = g942
-    } else if (inputString === 'ギガントゼウス') {
-      selectg = g948
-    } else if (inputString === 'バサラーズ') {
-      selectg = g943
-    } else if (inputString === 'ギャルズモンスターズ') {
-      selectg = g950
-    } else if (inputString === 'ギャラクシーギャルズ') {
-      selectg = g944
-    } else if (inputString === 'エレメンタルピクシーズ') {
-      selectg = g951
-    } else if (inputString === 'ドラゴンエンペラーズ') {
-      selectg = g945
-    } else if (inputString === 'ウルトラソウルズ') {
-      selectg = g946
-    } else if (inputString === 'ダークヒーローズ') {
-      selectg = g947
-    } else if (inputString === 'エアバスターズ') {
-      selectg = g452
-    } else if (inputString === 'メタルバスターズ') {
-      selectg = g915
-    } else if (inputString === '波動バスターズ') {
-      selectg = g523
-    } else if (inputString === 'レッドバスターズ') {
-      selectg = g696
-    } else if (inputString === '超生命体バスターズ') {
-      selectg = g772
-    } else if (inputString === '超ネコ祭') {
-      selectg = g963
-    } else if (inputString === '極ネコ祭') {
-      selectg = g964
-    } else if (inputString === '超極ネコ祭(正月)') {
-      selectg = g956
-    } else if (inputString === '超極ネコ祭(1/2周年)') {
-      selectg = g876
-    }
-
+    url.searchParams.set("select",inputString);
+    url.searchParams.set("seed",inputNumber);
+    const selectg = url.searchParams.get("select")
+    let seedi = url.searchParams.get("seed")
     //ガチャ別排出率設定
     let dens, tyog, grare;
-    if (selectg === g949) { //アイアンウォーズ
+    if (selectg === "949") { //アイアンウォーズ
       dens = 9970;
       tyog = 9470;
       grare = 6970;
-    } else if (selectg === g965){ //プラチケ
+    } else if (selectg === "965"){ //プラチケ
       dens = 10000;
       tyog = 0;
       grare = 0;
-    } else if (selectg === g966) { //レジェチケ
+    } else if (selectg === "966") { //レジェチケ
       dens = 9500;
       tyog = 0;
       grare = 0;
-    } else if (selectg === g962) { //ルガ族
+    } else if (selectg === "962") { //ルガ族
     dens = 9970;
     tyog = 9470;
     grare = 6970;
     }
-    kaburi = "";
-    maeno = "";
+
     function getValue(aaaa) {
       if (aaaa >= dens) {
         return 3;
@@ -269,7 +232,6 @@
       }
     }
 
-    let seedi = inputNumber;
     for (let au = 0; au <= 1000; au++) {
       
       const xorshift = new Xorshift32(seedi);
@@ -284,22 +246,20 @@
       seedi = results[1];
 
       let namea;
-      if (selectg[getValue(result1)] && selectg[getValue(result1)].length > 0) { // 追加: 配列の存在と長さを確認
-        namea = selectg[getValue(result1)][result2 % g949[getValue(result1)].length];
-    } else {
+      if (selectg === "949") { // 追加: 配列の存在と長さを確認
+        namea = g949[getValue(result1)][result2 % g949[getValue(result1)].length];
+      } else {
         namea = "作成途中です :("; // または適切なデフォルト値を設定
-    }
-
-    namesa.push(namea);
-    aread.push(result1);
-    maeno = namea
+      }
+      namesa.push(namea);
+      aread.push(result1);
+      maeno = namea
+      }
     
-    }
-    //B列用にseediを0.5列ずらす
-    const xorshift = new Xorshift32(inputNumber);
+    const xorshift = new Xorshift32(seedi);
     seedi = xorshift.random();
-    //B列つくる
-  for (let bu = 0; bu <= 1000; bu++) {
+
+    for (let bu = 0; bu <= 1000; bu++) {
       const xorshift = new Xorshift32(seedi);
 
       const results = [];
@@ -321,33 +281,6 @@
       namesb.push(nameb);   
       bread.push(result15);
     }
-
-    gchaSelect.addEventListener('change', () => {
-      findNext.innerHTML = ''; // find_nextを空にする
-  
-      if (gchaSelect.value === 'アイアンウォーズ') {
-        const option1 = document.createElement('option');
-        option1.value = "建築兵団スフィンクス";
-        option1.textContent = '建築兵団スフィンクス';
-        findNext.appendChild(option1);
-  
-        const option2 = document.createElement('option');
-        option2.value = "周遊芸団カルーセルズ";
-        option2.textContent = "周遊芸団カルーセルズ";
-        findNext.appendChild(option2);
-      } else if (gchaSelect.value === 'ダイナマイツ') {
-        const option1 = document.createElement('option');
-        option1.value = 'ネコショベル';
-        option1.textContent = 'ネコショベル';
-        findNext.appendChild(option1);
-  
-        const option2 = document.createElement('option');
-        option2.value = 'ネコドリル';
-        option2.textContent = 'ネコドリル';
-        findNext.appendChild(option2);
-      }
-      // 他の選択肢に対する処理も同様に追加
-    });
   
     // 初期表示
     const event = new Event('change');
@@ -388,25 +321,25 @@
       }
 
       //通常激レア処理
-      if (selectg != "g966" && selectg != "g965" && aread[i - 1] >= grare) {
+      if (hiku != "966" && hiku != "965" && aread[i - 1] >= grare) {
         rows[i].querySelector('.charas').style.backgroundColor = '#ffff00';
       }
-      if (selectg != "g966" && selectg != "g965" && bread[i - 1] >= grare) {
+      if (hiku != "966" && hiku != "965" && bread[i - 1] >= grare) {
         rows[i].querySelector('.charas-right').style.backgroundColor = '#ffff00';
       }
         //通常超激処理(確率違うところだけ先に作って残りはelseで処理する)
-      if (selectg != "g966" && selectg != "g965" && aread[i - 1] >= tyog) {
+      if (hiku != "966" && hiku != "965" && aread[i - 1] >= tyog) {
         rows[i].querySelector('.charas').style.backgroundColor = '#ff0033';
       }
-      if (selectg != "g966" && selectg != "g965" && bread[i - 1] >= tyog) {
+      if (hiku != "966" && hiku != "965" && bread[i - 1] >= tyog) {
         rows[i].querySelector('.charas-right').style.backgroundColor = '#ff0033';
       }
 
       //昇格超激処理（超極祭）
-      if (selectg != "g966" && selectg != "g965" && aread[i - 1] >= 8970 && aread[i - 1] <= 9500) {
+      if (hiku != "966" && hiku != "965" && aread[i - 1] >= 8970 && aread[i - 1] <= 9500) {
         rows[i].querySelector('.charas').style.backgroundColor = '#ff6633';
       }
-      if (selectg != "g966" && selectg != "g965" && selectg === "g949" && bread[i - 1] >= 8971 && bread[i - 1] <= 9500) {
+      if (hiku != "966" && hiku != "965" && hiku === "g949" && bread[i - 1] >= 8971 && bread[i - 1] <= 9500) {
         rows[i].querySelector('.charas-right').style.backgroundColor = '#ff6633';
       }
       //限定超激処理(上書き)
@@ -418,10 +351,10 @@
       } 
 
       //昇格伝説処理
-      if (selectg != "g966" && selectg != "g965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {
+      if (hiku != "966" && hiku != "965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {
         rows[i].querySelector('.charas').style.backgroundColor = '#6633ff';
       }
-      if (selectg != "g966" && selectg != "g965" && 9940 <= bread[i - 1] && bread[i - 1] <= dens) {
+      if (hiku != "966" && hiku != "965" && 9940 <= bread[i - 1] && bread[i - 1] <= dens) {
         rows[i].querySelector('.charas-right').style.backgroundColor = '#6633ff';
       }
       //伝説処理
@@ -436,7 +369,8 @@
   dtugi.textContent = dens_next
   updtugi.textContent = updens_next;
 }});
-  
+
+
   // 初期表示用
   for (let i = 0; i < 1000; i++) {
     const newRow = document.createElement('div');

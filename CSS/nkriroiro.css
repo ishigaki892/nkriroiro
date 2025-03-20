@@ -3,10 +3,6 @@ body {
   margin: 0; /* bodyのデフォルトのmarginを削除 */
 }
 
-h2 {
-  text-align: center;
-}
-
 .row {
   display: flex;
   width: 98vw; /* 端末の幅に合わせる */
