@@ -13,26 +13,58 @@ a {
     text-decoration: none;
 }
 
+.rtable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: calc(100vw * 0.75);
+  height: calc(100vw * 0.01);
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+}
 
-.tables {
+.ntable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: calc(100vw * 0.75);
+  height: calc(100vw * 0.01);
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+}
+
+.rseeker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: calc(100vw * 0.75);
+  height: calc(100vw * 0.01);
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+}
+
+.nseeker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: calc(100vw * 0.75);
+  height: calc(100vw * 0.01);
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+}
+
+.catthief {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
     width: calc(100vw * 0.75);
     height: calc(100vw * 0.01);
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-  }
-
-.csteal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.75);
-    height: calc(100vw * 0.01);
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(200, 200, 200);
     padding: 10px;
   }
 
@@ -45,5 +77,6 @@ h3 {
     border: 1px solid rgb(0, 0, 0);
     background-color: rgb(134, 134, 134);
     padding: 10px;
+    text-decoration: none;
 }
 
