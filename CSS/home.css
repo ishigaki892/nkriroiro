@@ -15,7 +15,7 @@ h3 {
     align-items: center;
     margin: 0 auto;
     width: calc(100vw * 0.99);
-    height: calc(100vw * 0.018);
+    height: 4vh;
     border: 1px solid rgb(0, 0, 0);
     background-color: rgb(134, 134, 134);
     padding: 10px;
@@ -27,7 +27,7 @@ h4 {
     justify-content: center;
     margin: 0 auto;
     width: calc(100vw * 0.99);
-    height: calc(100vw * 0.015);
+    height: 4vh;
     background-color: rgb(200, 200, 200);
     padding: 10px;
 }
