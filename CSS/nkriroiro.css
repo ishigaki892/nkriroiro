@@ -60,3 +60,16 @@ h3 {
 a {
   text-decoration: none;
 }
+
+h2 {
+  background-color: rgb(134,134,134);
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: calc(100vw * 1.00);
+  height: 4vh;
+  padding:  10px;
+}

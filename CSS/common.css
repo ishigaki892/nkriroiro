@@ -4,74 +4,39 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 
   }
+
+  h2 {
+    background-color: rgb(134,134,134);
+  }
+
 @media screen and (max-width: 480px) {
   h1 {
     text-align: left;
+  }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: calc(100vw * 0.99);
+    height: 5vh;
+    padding: 10px;
   }
 
   a {
     text-decoration: none;
   }
 
-  .rtable {
+  div {
     display: flex;
     align-items: center;
     margin: 0 auto;
     width: calc(100vw * 0.99);
     height: 4vh;
-    background-color: rgb(200, 200, 200);
+
     padding: 10px;
   }
 
-  .ntable {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.99);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-
-  .rseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.99);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-
-  .nseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.99);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-
-  .catthief {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.99);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-
-  .kiyaku {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.99);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
 
   h3 {
     display: flex;
@@ -79,7 +44,6 @@ body {
     margin: 0 auto;
     width: calc(100vw * 0.99);
     height: 4.5vh;
-    border: 1px solid rgb(0, 0, 0);
     background-color: rgb(134, 134, 134);
     padding: 10px;
     text-decoration: none;
@@ -97,74 +61,33 @@ body {
   a {
     text-decoration: none;
   }
-  
-  .rtable {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.95);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .ntable {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.95);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .rseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.95);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .nseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.95);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .catthief {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.95);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-    }
 
-  .kiyaku {
+  h2 {
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: calc(100vw * 0.95);
-    height: 4vh;
-    background-color: rgb(200, 200, 200);
+    width: calc(100vw * 0.85);
+    height: 5vh;
     padding: 10px;
   }
+  
+  div {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: calc(100vw * 0.85);
+    height: 4vh;
+
+    padding: 10px;
+  }
+
   
   h3 {
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: calc(100vw * 0.95);
+    width: calc(100vw * 0.85);
     height: 4.5vh;
-    border: 1px solid rgb(0, 0, 0);
     background-color: rgb(134, 134, 134);
     padding: 10px;
     text-decoration: none;
@@ -182,74 +105,33 @@ body {
   a {
     text-decoration: none;
   }
-  
-  .rtable {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.85);
-    height: 3.5vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .ntable {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.85);
-    height: 3.5vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .rseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.85);
-    height: 3.5vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .nseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.85);
-    height: 3.5vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .catthief {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.85);
-    height: 3.5vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-    }
 
-  .kiyaku {
+  h2 {
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: calc(100vw * 0.85);
-    height: 3.5vh;
-    background-color: rgb(200, 200, 200);
+    width: calc(100vw * 0.75);
+    height: 4.5vh;
     padding: 10px;
   }
+  
+  div {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: calc(100vw * 0.75);
+    height: 3.5vh;
+
+    padding: 10px;
+  }
+  
   
   h3 {
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: calc(100vw * 0.85);
+    width: calc(100vw * 0.75);
     height: 4vh;
-    border: 1px solid rgb(0, 0, 0);
     background-color: rgb(134, 134, 134);
     padding: 10px;
     text-decoration: none;
@@ -267,74 +149,31 @@ body {
   a {
     text-decoration: none;
   }
-  
-  .rtable {
+
+  h2 {
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: calc(100vw * 0.75);
+    width: calc(100vw * 0.60);
+    height: 4vh;
+    padding:  10px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: calc(100vw * 0.60);
     height: 3vh;
-    background-color: rgb(200, 200, 200);
+
     padding: 10px;
   }
     
-  .ntable {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.75);
-    height: 3vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .rseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.75);
-    height: 3vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .nseeker {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.75);
-    height: 3vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
-  .catthief {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.75);
-    height: 3vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-    }
-
-  .kiyaku {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: calc(100vw * 0.75);
-    height: 3vh;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-  }
-  
   h3 {
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: calc(100vw * 0.75);
+    width: calc(100vw * 0.60);
     height: 3.5vh;
-    border: 1px solid rgb(0, 0, 0);
     background-color: rgb(134, 134, 134);
     padding: 10px;
     text-decoration: none;

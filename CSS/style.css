@@ -1,0 +1,36 @@
+body {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  a {
+    color: blue; /* 通常時のAタグの色 */
+  }
+
+  body.dark-mode {
+    background-color: rgb(20, 20, 20);
+    color: white;
+  }
+
+  body.dark-mode a {
+    color: lightblue; /* ダークモード時のAタグの色 */
+  }
+
+  body.dark-mode h3 {
+    background-color: rgb(101,115,126);
+  }
+  body.dark-mode h2 {
+    background-color: rgb(101,115,126);
+  }
+
+  /* row クラスの背景色と文字色をダークモードで変更 */
+body.dark-mode .row {
+  background-color: rgb(50, 50, 50); /* 背景色をダークグレーに */
+  color: lightgray; /* 文字色をライトグレーに */
+}
+
+/* 必要に応じて、row クラス内の要素の色も変更 */
+body.dark-mode .row .box {
+  border: 1px solid gray; /* box の枠線をグレーに */
+}

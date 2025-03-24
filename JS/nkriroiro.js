@@ -250,6 +250,18 @@ document.addEventListener('DOMContentLoaded', function() {
     grare = 6970;
     sgacha = g962;
     gachaname = "ネコルガ族";
+  }　else if (selectg === "963") {
+    dens = 9970;
+    tyog = 9070;
+    grare = 6470;
+    sgacha = g963;
+    gachaname = "超ネコ祭";
+  } else if (selectg === "969") {
+    dens = 9970;
+    tyog = 9070;
+    grare = 6470;
+    sgacha = g969;
+    gachaname = "極ネコ祭";
   }
 
   function getValue(aaaa) {
@@ -351,8 +363,6 @@ document.addEventListener('DOMContentLoaded', function() {
         rows[i].querySelector('.charas-right').textContent = namesb[i - 1];
         rows[i].querySelector('.number').textContent = i;
         rows[i].querySelector('.numberb').textContent = i;
-        rows[i].querySelector('.charas').style.backgroundColor = '#ffffff';
-        rows[i].querySelector('.charas-right').style.backgroundColor = '#ffffff';
 
       //昇格伝説
       if (selectg != "966" && selectg != "965" && 9940 <= aread[i - 1] && aread[i - 1] <= dens) {

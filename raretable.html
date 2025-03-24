@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>レアガチャテーブル</title>
-  <link rel="stylesheet" href="CSS/nkriroiro.css">
+  <link rel="stylesheet" href="CSS/nkriroiro.css"></link>
+  <link rel="stylesheet" href="CSS/style.css"></link>
   <link rel="icon" href="img/logo_favicon.png">
 </head>
 <body>
-  <a href="index.html"><img src="img/logo_rtable.png" width="200" height="50"position: absolute; left: 0;></a>
+  <h2>レアガチャテーブル</h2>
   <br>
   <div id="gacha_selects">
     <select id="gcha_select" style="display: inline-block;">
@@ -76,10 +77,12 @@
       <option value="764">ストリートファイターV RED TEAM</option>
       <option value="864">メタルスラッグアタック</option>
       <option value="888">るろうに剣心</option>
+      <option value="977">範馬刃牙</option>
       <optgroup label="その他のガチャ:"></optgroup>
       <option value="957">新年</option>
       <option value="848">くにお熱血大運動会　赤組</option>
       <option value="924">りき熱血大運動会　白組</option>
+      <option value="974">アウトレット</option>
     </select>
   </div>
   <div id="seeds" style="position: relative;">
@@ -111,6 +114,7 @@
     <div id="updense_tugi"></div>
     </div>
   </div>
+  <button id="mode-toggle">ダーク,ライト切替(調整中)</button>
   <div id="container" class="container_Box">
     <div class="row"> 
       <div class="box number"></div>
@@ -120,5 +124,6 @@
     </div>
   </div>
   <script src="JS/nkriroiro.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>
