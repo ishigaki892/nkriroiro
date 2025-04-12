@@ -12,7 +12,7 @@ a {
 @media screen and (max-width: 480px) {
 h3 {
     display: flex;
-    align-items: center;
+    align-items: cente;
     margin: 0 auto;
     width: calc(100vw * 0.99);
     height: 4vh;
