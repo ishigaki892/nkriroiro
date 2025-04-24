@@ -133,7 +133,7 @@
   		"ネコ番長", "ネコぼさつ"
   	],
   	[
-  		"マモルガ", "幼天女ルーナ", "特命機動アクセル", "花咲かじいさん", "ネコダイナザウルス",
+  		"冥護の天女ルナーシャ","マモルガ", "幼天女ルーナ", "特命機動アクセル", "花咲かじいさん", "ネコダイナザウルス",
   		"砲龍ガンドロス", "明智光秀", "鉄籠のペガサ", "光翼神イシス", "鉄の精霊カッチン",
   		"建築兵団スフィンクス", "カオルガ", "サンダージャック", "いっすん法師", "運命の子フォノ",
   		"周遊芸団カルーセルズ", "ネコ天狗", "海龍ダライアサン", "氷の精霊フリズ", "服部半蔵",
@@ -157,11 +157,11 @@
   		"ホワイトラビット", "呪術師デスピエロ", "天誅ハヤブサ", "トゲルガ", "天空神ゼウス",
   		"守護神アヌビス", "美女神アフロディーテ"
   	],
-  	[
+  	[	
   		"暁のイザナギ"
   	]
   ];
-  const g964 = [
+  const g969 = [
   	[
   		"ネコ武闘家", "ネコマタドール", "ネコ探査機", "ネコボクサー", "ネコバサミ",
   		"ねこ陰陽師", "サイキックネコ", "ねこ人魚", "ねこロッカー", "ブリキネコ",
@@ -203,6 +203,27 @@
   		"宵のイザナミ"
   	]
   ];
+
+const g962 = [
+	[
+		"ネコ武闘家", "ネコマタドール", "ネコ探査機", "ネコボクサー", "ネコバサミ",
+		"ねこ陰陽師", "サイキックネコ", "ねこ人魚", "ねこロッカー", "ブリキネコ",
+		"たけうまねこ", "ねこガンマン", "ネコ魔剣士", "ネコアーチャー", "ネコ魔女",
+		"ネコシャーマン", "ねこ占い師", "ねこ僧侶", "ねこ泥棒", "ねこ海賊",
+		"ねこファイター", "ねこジュラ", "ネコエステ", "ネコ車輪", "ネコホッピング"
+	],
+	[
+		"泉のネコ女神", "戦隊チャッソ", "戦隊ショベリン", "戦隊チョキンドス", "戦隊ウチコンガ",
+		"戦隊ドリラ", "ネコフェンシング", "ネコジャンパー", "メタルネコ", "にゃんこ城Mini",
+		"ねねこ", "金ネコ", "おかめはちもくネコ", "ボンボンネコ", "見習いスニャイパー",
+		"ネコサーファー", "ネコトースター", "ネコスケート", "ネコバーベル", "窓辺の乙女ネコ",
+		"ねこ寿司", "ネコバスたぶ", "ネコリンゴ", "ネコスイマー", "オタネコ",
+		"ねこタツ", "ネコザイル", "ネコ番長", "ネコぼさつ"
+	],
+	[
+		
+	]
+]
 
   class Xorshift32 {
   	constructor(seed) {
@@ -266,46 +287,44 @@
   	const aread = [];
   	const bread = [];
 
-  	let dens, tyog, grare;
-  	if (selectg === "949") { //アイアンウォーズ
-  		dens = 9970;
-  		tyog = 9470;
-  		grare = 6970;
-  		sgacha = g949;
-  		gachaname = "アイアンウォーズ";
-  	} else if (selectg === "965") { //プラチケ
-  		dens = 10000;
-  		tyog = 0;
-  		grare = 0;
-  		sgacha = g965;
-  		gachaname = "プラチナガチャ";
-  	} else if (selectg === "966") { //レジェチケ
-  		dens = 9500;
-  		tyog = 0;
-  		grare = 0;
-  		sgacha = g966;
-  		gachaname = "レジェンドガチャ";
-  	} else if (selectg === "962") { //ルガ族
-  		dens = 9970;
-  		tyog = 9470;
-  		grare = 6970;
-  		sgacha = g962;
-  		gachaname = "ネコルガ族";
-  	}　
-  	else if (selectg === "963") {
-  		dens = 9970;
-  		tyog = 9070;
-  		grare = 6470;
-  		sgacha = g963;
-  		gachaname = "超ネコ祭";
-  	} else if (selectg === "969") {
-  		dens = 9970;
-  		tyog = 9070;
-  		grare = 6470;
-  		sgacha = g969;
-  		gachaname = "極ネコ祭";
-  	}
-
+	let dens, tyog, grare, sgacha, gachaname;
+	    if (selectg === "949") { //アイアンウォーズ
+	        dens = 9970;
+	        tyog = 9470;
+	        grare = 6970;
+	        sgacha = g949;
+	        gachaname = "アイアンウォーズ";
+	    } else if (selectg === "965") { //プラチケ
+	        dens = 10000;
+	        tyog = 0;
+	        grare = 0;
+	        sgacha = g965;
+	        gachaname = "プラチナガチャ";
+	    } else if (selectg === "966") { //レジェチケ
+	        dens = 9500;
+	        tyog = 0;
+	        grare = 0;
+	        sgacha = g966;
+	        gachaname = "レジェンドガチャ";
+	    } else if (selectg === "962") { //ルガ族
+	        dens = 9970;
+	        tyog = 9470;
+	        grare = 6970;
+	        sgacha = g962;
+	        gachaname = "ネコルガ族";
+	    }　else if (selectg === "963") {
+	        dens = 9970;
+	        tyog = 9070;
+	        grare = 6470;
+	        sgacha = g963;
+	        gachaname = "超ネコ祭";
+	    } else if (selectg === "969") {
+	        dens = 9970;
+	        tyog = 9070;
+	        grare = 6470;
+	        sgacha = g969;
+	        gachaname = "極ネコ祭";
+	    }
   	function getValue(aaaa) {
   		if (aaaa >= dens) {
   			return 3;
@@ -372,7 +391,7 @@
   		const kabushift = new Xorshift32(result144);
   		let nameb;
 
-  		nameb = g949[getValue(result15)][result144 % g949[getValue(result15)].length];
+  		nameb = sgacha[getValue(result15)][result144 % sgacha[getValue(result15)].length];
 
   		if (maenob === nameb && getValue(result15) == 0) {
   			const kaburi = sgacha[0].concat();
