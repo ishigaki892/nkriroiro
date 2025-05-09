@@ -1,0 +1,35 @@
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+
+}
+a {
+  /* 通常時のAタグの色 */
+  color: blue;
+}
+
+h2 {
+    background-color: rgb(134,134,134);
+  }
+  
+  h2 {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: calc(100vw * 0.95);
+    height: 4vh;
+    padding:  10px;
+  }
+
+  #gacha_selects {
+    width: calc(100vw * 0.5);
+    margin-left: 10px;
+  }
+
+  input[type="text"] {
+    width: calc(100vw * 0.2);
+    margin-left: 10px;
+  }
+
+  button {
+    margin-left: 10px;
+  }
