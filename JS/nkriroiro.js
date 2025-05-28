@@ -208,7 +208,27 @@
 			grare = 7000;
 			sgacha = gachas.g523;
 			gachaname = "波動バスターズ";
+		} else if (selectg === "772") {
+			dens = 10000;
+			tyog = 9500;
+			grare = 7000;
+			sgacha = gachas.g772;
+			gachaname = "超生命体バスターズ";
+		} else if (selectg === "981") { 
+			dens = 10000; 
+			tyog = 9070; 
+			grare = 6470; 
+			sgacha = gachas.g981; 
+			gachaname = "超ネコ祭"; 
+		} else if (selectg === "982") { 
+			dens = 10000; 
+			tyog = 9070; 
+			grare = 6470; 
+			sgacha = gachas.g982; 
+			gachaname = "極ネコ祭"; 
 		}
+// 追加用　else if (selectg === "000") { dens = 10000; tyog = 0000; grare = 0000; sgacha = gachas.g000; gachaname = "ガチャ名"; }
+
   	function getValue(aaaa) {
   		if (aaaa >= dens) {
   			return 3;
@@ -335,20 +355,20 @@
   					'#ffff00';
   			}
   			//通常超激処理(確率違うところだけ先に作って残りはelseで処理する)
-  			if (selectg != "966" && selectg != "965" && aread[i - 1] >= tyog) {
+  			if (aread[i - 1] >= tyog) {
   				rows[i].querySelector('.charas').style.backgroundColor = '#ff0033';
   			}
-  			if (selectg != "966" && selectg != "965" && bread[i - 1] >= tyog) {
+  			if (bread[i - 1] >= tyog) {
   				rows[i].querySelector('.charas-right').style.backgroundColor =
   					'#ff0033';
   			}
 
-  			//昇格超激処理（超極祭）
-  			if (selectg != "966" && selectg != "965" && aread[i - 1] >= 8970 &&
+  			//昇格超激処理
+  			if (aread[i - 1] >= 9070 &&
   				aread[i - 1] <= 9500) {
   				rows[i].querySelector('.charas').style.backgroundColor = '#ff6633';
   			}
-  			if (selectg != "966" && selectg != "965" && bread[i - 1] >= 8970 &&
+  			if (bread[i - 1] >= 9070 &&
   				bread[i - 1] <= 9500) {
   				rows[i].querySelector('.charas-right').style.backgroundColor =
   					'#ff6633';
